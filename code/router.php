@@ -6,7 +6,7 @@
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         switch($url){
             case $baseURL.'/index':
-                require_once "control/viewController.php";
+                require_once "controller/viewController.php";
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewIndex();
                 break;

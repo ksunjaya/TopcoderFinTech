@@ -1,0 +1,40 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* --------------- Company desc style ----------------- */
+.company-layout {
+  position: relative;
+  width: 700px;
+  color: var(--text-colour);
+}
+.bg-fintech {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.company-inner {
+  padding: 15px;
+}
+.company-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+}
+.company-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+/* --------------- Form input style ----------------- */
+.form-layout {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
