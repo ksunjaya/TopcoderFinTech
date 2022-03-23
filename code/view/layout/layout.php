@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Topcoder FinTech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       <?php include "view/css/login_style.css" ?>
       <?php include "view/css/default_style.css" ?>
@@ -21,6 +22,7 @@
           </div>
         </div>
       </div>
+
       <div class="form-layout">
       <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>

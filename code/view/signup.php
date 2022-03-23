@@ -1,8 +1,10 @@
-<!-- Login form disini -->
-<div id="login-form">
-    <h2>Login to Fintech</h2><br>
+<!-- Signup form disini -->
+<div id="signup-form">
+    <h2>Signup to Fintech</h2><br>
     <form action="" class="">
         <div class="container">
+            <i class="fa fa-user fa-lg" id="icon-name"></i>
+            <input type="text" placeholder="Name" class="input-name" required><br>
             <i class="fa fa-envelope fa-lg" id="icon-email"></i>
             <input type="text" placeholder="Email" class="input-email" required><br>
             <i class="fa fa-lock fa-2x" id="icon-pass"></i>
@@ -10,9 +12,9 @@
             <i class="fa fa-eye fa-lg" id="icon-eye"></i>
         </div>
         <div class="clearfix">
-            <button type="button" class="loginBtn">Login</button>
+            <button type="button" class="loginBtn">Signup</button>
         </div>
-        <p>Don't have an account? <a href="">Signup here</a> </p>
+        <p>Already have an account? <a href="">Login here</a> </p>
     </form>
 </div>
 
@@ -28,3 +30,4 @@
         this.classList.toggle('fa-eye-slash');
     });
 </script>
+
