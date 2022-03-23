@@ -6,5 +6,8 @@ class viewController{
     return View::createView('login.php', []);  
   }
 
+  public static function viewDashboard(){
+    return View::createDashboard('',[]);
+  }
 }
 ?>

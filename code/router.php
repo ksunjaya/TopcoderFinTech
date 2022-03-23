@@ -10,6 +10,11 @@
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewIndex();
                 break;
+            case $baseURL.'/dashboard':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewDashboard();
+                break;
             default :
                 echo '404 not found';
                 break;

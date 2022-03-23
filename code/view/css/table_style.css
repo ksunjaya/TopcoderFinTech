@@ -1,0 +1,102 @@
+/* Menu header table */
+.menu-content {
+  width: 90%;
+  margin: auto;
+  background-color: #4cbfff;
+  margin-bottom: 20px;
+  color: var(--text-colour);
+  border-radius: var(--border-radius);
+}
+.menu-container {
+  padding: 20px;
+}
+.menu-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.input-search {
+  position: relative;
+}
+::placeholder {
+  color: #1f384c;
+  opacity: 0.3;
+}
+.input-search input {
+  all: unset;
+  width: 300px;
+  padding: 10px;
+  font-size: 12px;
+  color: #1f384c;
+  border-radius: var(--border-radius);
+  background-color: #f6f6fb;
+}
+.input-search img {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Table style */
+table {
+  border-collapse: collapse;
+  margin: auto;
+  color: var(--table-colour);
+}
+.header-table {
+  background-color: #edf2f7;
+}
+.header-table th {
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  text-align: left;
+}
+.body-table td {
+  padding: 20px;
+  font-size: 12px;
+}
+.td-table {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Id Row */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 20px;
+}
+
+/* Name Row */
+th:nth-child(2),
+td:nth-child(2) {
+  max-width: 150px;
+}
+
+/* Email row */
+th:nth-child(3),
+td:nth-child(3) {
+  max-width: 200px;
+}
+
+/* Status row */
+.status p {
+  padding: 10px;
+  background-color: #f7cb73;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+/* Action row */
+.action button {
+  all: unset;
+  color: var(--text-colour);
+  padding: 10px;
+  background-color: #724dff;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
