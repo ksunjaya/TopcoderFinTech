@@ -7,22 +7,19 @@
         switch($url){
             case $baseURL.'/index':
                 require_once "controller/viewController.php";
-                $idxCtrl = new viewController();
-                echo $idxCtrl->viewIndex();
+                echo ViewController::viewIndex();
                 break;
-            case $baseURL.'/dashboard':
+            case $baseURL.'/onboard':
                 require_once "controller/viewController.php";
-                $idxCtrl = new viewController();
-                echo $idxCtrl->viewDashboard();
+                echo ViewController::viewOnboard();
+                break;
             case $baseURL.'/login':
                 require_once "controller/viewController.php";
-                $idxCtrl = new viewController();
-                echo $idxCtrl->viewLogin();
+                echo ViewController::viewLogin();
                 break;
             case $baseURL.'/signup':
                 require_once "controller/viewController.php";
-                $idxCtrl = new viewController();
-                echo $idxCtrl->viewRegister();
+                echo ViewController::viewSignup();
                 break;
             default :
                 echo '404 not found';
