@@ -5,10 +5,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="view/style/login.css">
     <link rel="stylesheet" href="view/style/style.css">
-    <!-- <style>
-      <?php include "view/css/login_style.css" ?>
-      <?php include "view/css/default_style.css" ?>
-    </style> -->
   </head>
 
   <body>
