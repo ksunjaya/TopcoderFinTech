@@ -50,24 +50,24 @@ i {
   position: absolute;
 }
 
-/* .container i {
-  position: absolute;
-} */
+#icon-name {
+  padding: 13px 16px;
+}
 
-#icon-name, #icon-email {
-  padding: 10px;
+#icon-email {
+  padding: 13px 12px;
   min-width: 20px;
 }
 
 #icon-pass {
-  padding: 5px 10px;
+  padding: 7px 12px;
   min-width: 20px;
 }
 
 #icon-eye {
-  margin-left: -40px;
+  margin-left: -50px;
   cursor: pointer;
-  padding: 10px;
+  padding: 15px;
 }
 
 .input-name, .input-email {
@@ -90,7 +90,19 @@ i {
   color: white;
   border: none;
   border-radius: 4px;
-  padding: 12px 120px;
+  padding: 12px 143px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.signupBtn {
+  background-color: #724DFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 139px;
   text-align: center;
   display: inline-block;
   font-size: 14px;

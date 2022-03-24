@@ -54,7 +54,12 @@ i {
   position: absolute;
 } */
 
-#icon-name, #icon-email {
+#icon-name {
+  margin: 10px;
+  min-width: 20px;
+}
+
+#icon-email {
   padding: 10px;
   min-width: 20px;
 }

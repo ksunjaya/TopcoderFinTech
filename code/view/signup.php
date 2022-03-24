@@ -11,7 +11,7 @@
             <i class="fa fa-eye fa-lg" id="icon-eye"></i>
         </div>
         <div class="clearfix">
-            <button type="button" class="loginBtn">Signup</button>
+            <button type="button" class="signupBtn">Signup</button>
         </div>
         <p>Already have an account? <a href="">Login here</a> </p>
     </form>
