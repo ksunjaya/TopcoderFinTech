@@ -6,9 +6,19 @@
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         switch($url){
             case $baseURL.'/index':
-                require_once "control/viewController.php";
+                require_once "controller/viewController.php";
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewIndex();
+                break;
+            case $baseURL.'/login':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewLogin();
+                break;
+            case $baseURL.'/register':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewRegister();
                 break;
             default :
                 echo '404 not found';

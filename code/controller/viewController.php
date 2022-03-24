@@ -6,5 +6,12 @@ class viewController{
     return View::createView('index.php', []);  
   }
 
+  public static function viewLogin(){
+    return View::createView('login.php', []);  
+  }
+
+  public static function viewRegister(){
+    return View::createView('register.php', []);  
+  }
 }
 ?>
