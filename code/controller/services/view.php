@@ -21,7 +21,8 @@ class View {
         return $include;
     }
 
-    public static function createDashboard ($view, $param)
+    public static function createAuthView ($view, $param)
+
     {
         foreach ($param as $key => $value)
         {
@@ -29,14 +30,16 @@ class View {
         }
 
         ob_start();
-        include 'view/components/table.php';
-        $table = ob_get_contents();
+        include 'view/'.$view;
+        $content = ob_get_contents();
         ob_end_clean();
-        
+
         ob_start();
-        include 'view/layout/dashboard_layout.php';
+        include 'view/layout/authLayout.php';
         $include = ob_get_contents();
         ob_end_clean();
+
+
         return $include;
     }
 }

@@ -1,34 +1,44 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Topcoder FinTech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      <?php include "view/css/login_style.css" ?>
-      <?php include "view/css/default_style.css" ?>
-    </style>
+    <link rel="stylesheet" href="view/style.css">
+    <!--BOXICON CDN link -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
   <body>
-    <div class="login-page">
-      <div class="company-layout">
-        <img src="src/login.png" alt="" class="bg-fintech">
-        <div class="company-inner">
-          <div class="company-desc">
-            <div class="company-logo">
-              <img src="src/logo.png" alt="" class="logo-fintech">
-              <h1>Fintech</h1>
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, quia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, rerum!</p>
-          </div>
-        </div>
-      </div>
+    <main>
+      <section>
+        <img src="src/main-logo.png" alt="company logo" id="main-logo">
+        <span id="vertical-line"></span>
+        <span id="menu-span">
+          MENU
+        </span>
+        <!-- <div id="sidebar-selection">
+          <div><i class='bx bxs-bar-chart-square bx-sm'></i><a href="">Onboard Customer</a></div>
+          <div><i class='bx bxs-user-account bx-sm'></i><a href="">Customer List</a></div>
+        </div> -->
 
-      <div class="form-layout">
-      <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <ul class="navlist">
+          <li>
+            <a href="">
+              <i class='bx bxs-bar-chart-square bx-sm'></i>
+              <span class="links_name">Onboard Customer</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class='bx bxs-user-account bx-sm'></i>
+              <span class="links_name">Customer List</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section>
         <?php echo $content ?>
-      </div>
-    </div>
+      </section>
+    </main>
   </body>
 </html>

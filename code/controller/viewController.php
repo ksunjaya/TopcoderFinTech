@@ -8,6 +8,14 @@ class viewController{
 
   public static function viewDashboard(){
     return View::createDashboard('',[]);
+
+  public static function viewLogin(){
+    return View::createAuthView('login.php', []);  
   }
+
+  public static function viewRegister(){
+    return View::createAuthView('signup.php', []);  
+  }
+  
 }
 ?>

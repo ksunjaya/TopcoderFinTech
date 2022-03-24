@@ -14,6 +14,15 @@
                 require_once "controller/viewController.php";
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewDashboard();
+            case $baseURL.'/login':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewLogin();
+                break;
+            case $baseURL.'/signup':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewRegister();
                 break;
             default :
                 echo '404 not found';
