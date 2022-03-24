@@ -7,11 +7,11 @@ class viewController{
   }
 
   public static function viewLogin(){
-    return View::createView('login.php', []);  
+    return View::createAuthView('login.php', []);  
   }
 
   public static function viewRegister(){
-    return View::createView('register.php', []);  
+    return View::createAuthView('signup.php', []);  
   }
 }
 ?>

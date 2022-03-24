@@ -15,7 +15,7 @@
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewLogin();
                 break;
-            case $baseURL.'/register':
+            case $baseURL.'/signup':
                 require_once "controller/viewController.php";
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewRegister();

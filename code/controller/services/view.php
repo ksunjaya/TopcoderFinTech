@@ -21,7 +21,7 @@ class View {
         return $include;
     }
 
-    public static function createViewNoLayout ($view, $param)
+    public static function createAuthView ($view, $param)
     {
         foreach ($param as $key => $value)
         {
@@ -33,7 +33,12 @@ class View {
         $content = ob_get_contents();
         ob_end_clean();
 
-        return $content;
+        ob_start();
+        include 'view/layout/authLayout.php';
+        $include = ob_get_contents();
+        ob_end_clean();
+
+        return $include;
     }
 }
 ?>
