@@ -29,6 +29,13 @@
     //sementara tidak butuh post krn cuma ganti" page aja    
     }else if($_SERVER["REQUEST_METHOD"] == "POST"){
         switch($url){
+            case $baseURL.'/signup':
+                require_once "controller/clientController.php";
+                $clientController = new ClientController();
+                $result = $clientController->createNewUser();
+                if($result == true) echo 'BERHASIL!'; //sementara aja, TO BE DELETED
+                else echo 'GAGAL!';
+                break;
             default :
                 echo '404 not found';
                 break;

@@ -7,13 +7,15 @@ class MySQLDB{
 	protected $dbname;
 	protected $db_connection;
 
-	public function __construct($servername, $username, $password, $dbname)
+	public function __construct()
 	{
-		$this->servername = $servername;
-		$this->username = $username;
-		$this->password = $password;
-		$this->dbname = $dbname;
+		$ini_array = parse_ini_file("properties.ini");
+		$this->servername = $ini_array['servername'];
+		$this->username = $ini_array['username'];
+		$this->password = $ini_array['password'];
+		$this->dbname = $ini_array['dbname'];
 	}
+	
 	public function openConnection()
 	{	
 		//create connection
