@@ -10,6 +10,10 @@
                 $idxCtrl = new viewController();
                 echo $idxCtrl->viewIndex();
                 break;
+            case $baseURL.'/dashboard':
+                require_once "controller/viewController.php";
+                $idxCtrl = new viewController();
+                echo $idxCtrl->viewDashboard();
             case $baseURL.'/login':
                 require_once "controller/viewController.php";
                 $idxCtrl = new viewController();
