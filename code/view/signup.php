@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="clearfix">
-            <input type="submit" class="signupBtn" value="Sign Up">
+            <input type="submit" class="customBtn" value="Sign Up">
         </div>
         <p>Already have an account? <a href="login">Login here</a> </p>
     </form>

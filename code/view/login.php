@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="clearfix">
-            <input type="submit" class="loginBtn" value="Login">
+            <input type="submit" class="customBtn" value="Login">
         </div>
         <p>Don't have an account? <a href="signup">Signup here</a> </p>
     </form>
