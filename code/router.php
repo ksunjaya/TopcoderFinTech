@@ -36,6 +36,14 @@
                 if($result == true) echo 'BERHASIL!'; //sementara aja, TO BE DELETED
                 else echo 'GAGAL!';
                 break;
+            case $baseURL.'/login':
+                require_once "controller/clientController.php";
+                require_once "controller/viewController.php";
+                $clientController = new ClientController();
+                $result = $clientController->loginUser();
+                if($result == true) echo ViewController::viewOnboard();
+                else echo 'GAGAL!';
+                break;
             default :
                 echo '404 not found';
                 break;
