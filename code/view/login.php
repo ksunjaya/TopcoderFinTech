@@ -2,16 +2,20 @@
     <h2>Login to Fintech</h2><br>
     <form action="" class="">
         <div class="container">
-            <i class="fa fa-envelope fa-lg" id="icon-email"></i>
-            <input type="text" placeholder="Email" class="input-email" required><br>
-            <i class="fa fa-lock fa-2x" id="icon-pass"></i>
-            <input type="password" placeholder="Password" id="input-pass" onrequired>
-            <i class="fa fa-eye fa-lg" id="icon-eye"></i>
+            <div class="input-inner">
+                <input type="text" placeholder="Email" class="input-email" required><br>
+                <i class="fa fa-envelope fa-lg" id="icon-email"></i>
+            </div>
+            <div class="input-inner">
+                <input type="password" placeholder="Password" id="input-pass" onrequired>
+                <i class="fa fa-lock fa-2x" id="icon-pass"></i>
+                <i class="fa fa-eye fa-lg" id="icon-eye"></i>
+            </div>
         </div>
         <div class="clearfix">
-            <button type="button" class="loginBtn">Login</button>
+            <input type="button" class="loginBtn" value="Login">
         </div>
-        <p>Don't have an account? <a href="">Signup here</a> </p>
+        <p>Don't have an account? <a href="signup">Signup here</a> </p>
     </form>
 </div>
 <script>

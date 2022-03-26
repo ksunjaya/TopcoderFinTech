@@ -25,6 +25,7 @@ td {
 body,
 html {
   font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
@@ -33,7 +34,7 @@ html {
   --border-radius: 6px;
 }
 
-/* clears the 'X' from Internet Explorer */
+/* clears the 'X' in input search from Internet Explorer */
 input[type="search"]::-ms-clear {
   display: none;
   width: 0;

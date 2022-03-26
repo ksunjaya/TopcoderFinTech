@@ -4,6 +4,7 @@
     <title>Topcoder FinTech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="view/style/login.css">
+    <link rel="stylesheet" href="view/style/default_style.css">
     <link rel="stylesheet" href="view/style/style.css">
   </head>
 
@@ -21,7 +22,6 @@
           </div>
         </div>
       </div>
-
       <div class="form-layout">
       <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
       <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>

@@ -33,14 +33,17 @@
 }
 
 /* --------------- Form input style ----------------- */
-.form-layout {
-  width: 100%;
-  display: grid;
-  place-content: center;
+input {
+  all: unset;
+  border: 1px solid #9ca3af;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  height: 48px;
 }
-
-.container {
-  padding-bottom: 25px;
+input:active,
+input:focus {
+  border: 1px solid #724dff;
+  transition: border 0.5s ease;
 }
 
 i {
@@ -48,45 +51,55 @@ i {
   font-size: 100px;
   opacity: 60%;
   position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+input:focus ~ i {
+  color: #724dff;
+  transition: color 0.5s ease;
 }
 
-#icon-name {
-  padding: 13px 16px;
+.form-layout {
+  width: 100%;
+  display: grid;
+  place-content: center;
 }
 
-#icon-email {
-  padding: 13px 12px;
-  min-width: 20px;
+.container {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-#icon-pass {
-  padding: 7px 12px;
-  min-width: 20px;
+.input-inner {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #icon-eye {
-  margin-left: -50px;
   cursor: pointer;
-  padding: 15px;
+  left: unset;
+  right: 12px;
 }
 
-.input-name, .input-email {
-  width: 275px;
-  height: 40px;
-  margin-bottom: 30px;
-  padding-left: 40px;
-  border-radius: 5px;
-}
-
+.input-name,
+.input-email,
 #input-pass {
   width: 275px;
-  height: 40px;
   padding-left: 40px;
   border-radius: 5px;
+  width: 100%;
 }
 
-.loginBtn {
-  background-color: #724DFF;
+.loginBtn,
+.signupBtn {
+  height: unset;
+  background-color: #724dff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -97,18 +110,7 @@ i {
   margin-bottom: 10px;
 }
 
-.signupBtn {
-  background-color: #724DFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 139px;
-  text-align: center;
-  display: inline-block;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
 form p {
-  font-size: small;
-} 
+  font-size: 14px;
+  color: #6b7280;
+}

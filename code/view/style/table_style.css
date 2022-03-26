@@ -8,7 +8,9 @@
   border-radius: var(--border-radius);
 }
 .menu-container {
-  padding: 20px;
+  height: 60px;
+  display: flex;
+  padding: 0px 30px;
 }
 .menu-detail {
   display: flex;
