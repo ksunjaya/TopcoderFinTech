@@ -32,7 +32,7 @@
         <p>Pending</p>
       </td>
       <td class="action">
-        <button>
+        <button data-toggle="modal" data-target="#detail">
           Detail
         </button>
       </td>
@@ -46,10 +46,44 @@
         <p>Pending</p>
       </td>
       <td class="action">
-        <button>
+        <button data-toggle="modal" data-target="#detail">
           Detail
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-inner">
+        <div class="modal-header">
+          <img src="src/thumbnail.png" alt="">
+        </div>
+        <div class="modal-body">
+          <div class="detail-profile">
+            <div class="desc-profile">
+              <p>Name</p>
+              <p>Moch Rafi Adnan Setiadipura</p>
+            </div>
+            <div class="desc-profile">
+              <p>Email</p>
+              <p>rafisetiadipura@gmail.com</p>
+            </div>
+            <div class="desc-profile">
+              <p>Country</p>
+              <p>Bandung</p>
+            </div>
+            <div class="desc-profile">
+              <p>Date of birth</p>
+              <p>07/03/1998</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="customBtn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

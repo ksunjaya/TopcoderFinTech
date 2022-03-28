@@ -3,7 +3,6 @@ require_once "services/mySQLDB.php";
 class ClientController{
   
   protected $db;
-
   public function __construct(){
     $this->db = new MySQLDB();
   }
@@ -27,6 +26,19 @@ class ClientController{
     $query_result = $this->db->executeNonSelectQuery($query);
     
     return $query_result;
+  }
+
+  //==LOGIN POST==
+  public function loginUser(){
+    $email = $this->db->escapeString($_POST['email']);
+    $password = $this->db->escapeString($_POST['password']);
+
+    $result = 'SELECT COUNT(email) AS "jumlah"
+    FROM client
+    WHERE email="'.$email.'" AND password=PASSWORD("'.$password.'")';
+    $query_result = $this->db->executeSelectQuery($result);
+    if($query_result[0]["jumlah"] > 0) return true;
+    else return false;
   }
 }
 
