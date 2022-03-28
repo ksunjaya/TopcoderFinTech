@@ -8,7 +8,11 @@ class View {
         {
             $$key = $value;
         }
-
+        
+        //cek dulu apakah client sudah melakukan login atau belum
+        @session_start();
+        if(!isset($_SESSION['first-name'])) header("Location: login?status=3"); //3 = harap melakukan login terlebih dahulu
+        
         ob_start();
         include 'view/'.$view;
         $content = ob_get_contents();

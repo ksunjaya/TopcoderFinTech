@@ -33,11 +33,17 @@ class ClientController{
     $email = $this->db->escapeString($_POST['email']);
     $password = $this->db->escapeString($_POST['password']);
 
-    $result = 'SELECT COUNT(email) AS "jumlah"
+    $result = 'SELECT first_name, last_name
     FROM client
     WHERE email="'.$email.'" AND password=PASSWORD("'.$password.'")';
     $query_result = $this->db->executeSelectQuery($result);
-    if($query_result[0]["jumlah"] > 0) return true;
+    if(sizeof($query_result) > 0) {
+      //pasang session
+      session_start();
+      $_SESSION["first-name"] = $query_result[0]['first_name'];
+      $_SESSION["last-name"] = $query_result[0]['last_name'];
+      return true;
+    }
     else return false;
   }
 }

@@ -22,7 +22,7 @@ header > div:nth-child(1) {
   width: 90%;
 }
 
-header > div:nth-child(1) > a {
+header > div:nth-child(1) > form > a {
   align-items: center;
   display: flex;
   text-decoration: none;
