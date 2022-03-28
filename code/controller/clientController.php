@@ -38,10 +38,6 @@ class ClientController{
     WHERE email="'.$email.'" AND password=PASSWORD("'.$password.'")';
     $query_result = $this->db->executeSelectQuery($result);
     if(sizeof($query_result) > 0) {
-      //pasang session
-      session_start();
-      $_SESSION["first-name"] = $query_result[0]['first_name'];
-      $_SESSION["last-name"] = $query_result[0]['last_name'];
       return true;
     }
     else return false;

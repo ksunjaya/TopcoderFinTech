@@ -55,9 +55,7 @@
         <div>
           <img src="src/thumbnail.png" alt="">
           <p><?php echo $_SESSION['first-name'] . ' ' . $_SESSION['last-name'] ?></p>
-          <form method="POST" action="logout">
-            <a id='logout' href=""><i class='bx bx-log-out bx-sm'></i>Logout</a>
-          </form>
+          
         </div>
       </header>
       <?php echo $content ?>
@@ -67,12 +65,3 @@
 
 </html>
 
-<script>
-  const btnSubmit = document.getElementById('logout');
-  btnSubmit.addEventListener('click', function(e){
-    e.preventDefault();
-    let form = btnSubmit.parentElement;
-    form.submit();
-  });
-
-</script>
