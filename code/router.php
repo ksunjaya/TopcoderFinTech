@@ -45,7 +45,11 @@
                 else                header("Location: login?status=2"); //status = 2 artinya gagal login
                 break;
             case $baseURL.'/logout':
-               
+                session_start();
+                session_unset();
+                session_destroy();
+                header("Location: login");
+                break;
             default :
                 echo '404 not found';
                 break;
