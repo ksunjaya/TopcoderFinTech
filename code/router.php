@@ -41,8 +41,8 @@
                 require_once "controller/viewController.php";
                 $clientController = new ClientController();
                 $result = $clientController->loginUser();
-                if($result == true) header("Location: onboard");
-                else                header("Location: login?status=2"); //status = 2 artinya gagal login
+                // if($result == true) header("Location: onboard");
+                // else                header("Location: login?status=2"); //status = 2 artinya gagal login
                 break;
             case $baseURL.'/logout':
                 session_start();

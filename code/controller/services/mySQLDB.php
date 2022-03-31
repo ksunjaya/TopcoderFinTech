@@ -27,8 +27,13 @@ class MySQLDB{
 			die ('Could not connect to'.$this->servername.' server');
 		}
 	}
-	public function executeSelectQuery ($sql)
+
+	public function executeSelectQuery ($sql, $values)
 	{
+		echo implode("|", $values);
+		//escape strings
+		$sql = str_replace(array_keys($values), $this->escapeString(array_values($values)), $sql);
+		echo $sql;
 		$this -> openConnection();
 		$query_result = $this -> db_connection -> query($sql);
 		$result = [];
