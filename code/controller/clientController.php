@@ -89,13 +89,13 @@ class ClientController{
             ->where('email', $email)
             ->get();
     
-    echo $password . '<br>';
+    //echo $password . '<br>';
 
     if(sizeof($query_result) == 0){
       echo 'email tidak ditemukan!';
       return false;
     }
-    echo 'Password yang ada di db : ' . $query_result[0]['password'] . '<br>';
+    //echo 'Password yang ada di db : ' . $query_result[0]['password'] . '<br>';
 
     if(password_verify($password, $query_result[0]['password'])){
       session_start();
