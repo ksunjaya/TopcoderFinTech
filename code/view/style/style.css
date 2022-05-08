@@ -145,3 +145,25 @@ main > section:nth-child(2) {
   margin-bottom: 20px;
   height: 2px;
 }
+
+.error-box{
+  text-align: center;
+  margin-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #ffbaba;
+  color: #d21f3c;
+  border: 1px solid #ff5252;
+  border-radius: 10px;
+}
+
+.ok-box{
+  text-align: center;
+  margin-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #8cdba9;
+  color: #33ab5f;
+  border: 1px solid #8cdba9;
+  border-radius: 10px;
+}

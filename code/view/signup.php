@@ -1,5 +1,15 @@
+<?php
+if(isset($_GET['status']) && $_GET['status'] == 1)
+    echo "
+        <div class='error-box'>
+            <p>Email has already been taken.</p>
+        </div>
+        ";
+?>
+
 <div id="div-form">
     <h2>Signup to Fintech</h2><br>
+
     <form action="signup" class="" method="POST">
         <div class="container">
             <div class="input-inner">

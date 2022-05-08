@@ -33,16 +33,16 @@
                 require_once "controller/clientController.php";
                 $clientController = new ClientController();
                 $result = $clientController->createNewUser();
-                if($result == true) header("Location: login?status=1"); //status = 1 artinya berhasil registrasi
-                else                echo 'GAGAL!';
+                if($result == true) header("Location: login?status=1"); //login status = 1 artinya berhasil registrasi
+                else                header("Location: signup?status=1"); //signup status = 1 artinya gagal, email udah diambil
                 break;
             case $baseURL.'/login':
                 require_once "controller/clientController.php";
                 require_once "controller/viewController.php";
                 $clientController = new ClientController();
                 $result = $clientController->loginUser();
-                // if($result == true) header("Location: onboard");
-                // else                header("Location: login?status=2"); //status = 2 artinya gagal login
+                if($result == true) header("Location: onboard");
+                else                header("Location: login?status=2"); //status = 2 artinya gagal login
                 break;
             case $baseURL.'/logout':
                 session_start();

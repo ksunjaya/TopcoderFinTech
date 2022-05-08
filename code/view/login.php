@@ -1,3 +1,19 @@
+<?php
+if(isset($_GET['status']) && $_GET['status'] == 2)
+    echo "
+        <div class='error-box'>
+            <p>Sorry, we could not find your account.</p>
+        </div>
+        ";
+
+else if(isset($_GET['status']) && $_GET['status'] == 1)
+    echo "
+        <div class='ok-box'>
+            <p>Registration complete</p>
+        </div>
+        ";
+?>
+
 <div id="div-form">
     <h2>Login to Fintech</h2><br>
     <form class="" method="POST">
