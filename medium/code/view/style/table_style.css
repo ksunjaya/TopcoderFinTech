@@ -1,0 +1,146 @@
+/* Menu header table */
+.menu-content {
+  width: 90%;
+  margin: auto;
+  background-color: #4cbfff;
+  margin-bottom: 20px;
+  color: var(--text-colour);
+  border-radius: var(--border-radius);
+}
+.menu-container {
+  height: 60px;
+  display: flex;
+  padding: 0px 30px;
+}
+.menu-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.input-search {
+  position: relative;
+}
+::placeholder {
+  color: #1f384c;
+  opacity: 0.3;
+}
+.input-search input {
+  all: unset;
+  width: 300px;
+  padding: 10px;
+  font-size: 12px;
+  color: #1f384c;
+  border-radius: var(--border-radius);
+  background-color: #f6f6fb;
+}
+.input-search img {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Table style */
+table {
+  border-collapse: collapse;
+  margin: auto;
+  color: var(--table-colour);
+}
+.header-table {
+  background-color: #edf2f7;
+}
+.header-table th {
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  text-align: left;
+}
+.body-table td {
+  padding: 20px;
+  border: none !important;
+  font-size: 14px;
+}
+.td-table {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Id Row */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 20px;
+}
+
+/* Name Row */
+th:nth-child(2),
+td:nth-child(2) {
+  max-width: 150px;
+}
+
+/* Email row */
+th:nth-child(3),
+td:nth-child(3) {
+  max-width: 200px;
+}
+
+/* Status row */
+.status p {
+  padding: 10px;
+  background-color: #f7cb73;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+/* Action row */
+.action button {
+  all: unset;
+  color: var(--text-colour);
+  padding: 10px;
+  background-color: #724dff;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+/* Modal Style */
+.modal-content {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #724dff;
+}
+.modal-inner {
+  background-color: white;
+}
+.modal-header {
+  place-content: center;
+}
+.modal-header img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.detail-profile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.desc-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.modal-footer .customBtn {
+  padding: 13px 60px;
+  margin: 0;
+}
