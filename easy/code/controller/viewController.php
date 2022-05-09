@@ -6,8 +6,8 @@ class ViewController{
     return View::createView('index.php', []);  
   }
 
-  public static function viewOnboard(){
-    return View::createView('onboard.php', []);
+  public static function viewCustomerList(){
+    return View::createView('customerList.php', []);
   }
 
   public static function viewLogin(){

@@ -2,7 +2,7 @@
   <div class="menu-container">
     <div class="menu-detail">
       <!-- Title Menu -->
-      <p>Onboard Customer</p>
+      <p>Customer List</p>
 
       <div class="input-search">
         <input type="search" placeholder="Search Customer..">
@@ -39,8 +39,8 @@
     </tr>
     <tr>
       <td class="td-table">2</td>
-      <td class="td-table">Rafi</td>
-      <td class="td-table">rafisetiadipura@gmail.com</td>
+      <td class="td-table">Erick Saputra</td>
+      <td class="td-table">ericksaputra@gmail.com</td>
       <td class="img-thumbnail"><img src="src/thumbnail.png" alt=""></td>
       <td class="status">
         <p>Pending</p>

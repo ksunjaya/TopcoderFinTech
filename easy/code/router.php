@@ -9,9 +9,9 @@
                 require_once "controller/viewController.php";
                 echo ViewController::viewIndex();
                 break;
-            case $baseURL.'/onboard':
+            case $baseURL.'/customer-list':
                 require_once "controller/viewController.php";
-                echo ViewController::viewOnboard();
+                echo ViewController::viewCustomerList();
                 break;
             case $baseURL.'/login':
                 require_once "controller/viewController.php";
@@ -41,7 +41,7 @@
                 require_once "controller/viewController.php";
                 $clientController = new ClientController();
                 $result = $clientController->loginUser();
-                if($result == true) header("Location: onboard");
+                if($result == true) header("Location: customer-list");
                 else                header("Location: login?status=2"); //status = 2 artinya gagal login
                 break;
             case $baseURL.'/logout':

@@ -37,15 +37,15 @@
 
       <ul class="navlist">
         <li>
-          <a href="">
-            <i class='bx bxs-bar-chart-square bx-sm'></i>
-            <span class="links_name">Onboard Customer</span>
+          <a href="customer-list">
+            <i class='bx bxs-user-account bx-sm'></i>
+            <span class="links_name">Customer List</span>
           </a>
         </li>
         <li>
-          <a href="">
-            <i class='bx bxs-user-account bx-sm'></i>
-            <span class="links_name">Customer List</span>
+          <a href="onboard">
+            <i class='bx bxs-bar-chart-square bx-sm'></i>
+            <span class="links_name">Onboard Customer</span>
           </a>
         </li>
       </ul>
