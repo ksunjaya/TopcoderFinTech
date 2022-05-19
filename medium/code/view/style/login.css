@@ -1,0 +1,102 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* --------------- Company desc style ----------------- */
+.company-layout {
+  position: relative;
+  width: 700px;
+  color: var(--text-colour);
+}
+.bg-fintech {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.company-inner {
+  padding: 15px;
+}
+.company-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+}
+.company-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+/* --------------- Form input style ----------------- */
+input {
+  all: unset;
+  border: 1px solid #9ca3af;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  height: 48px;
+}
+input:active,
+input:focus {
+  border: 1px solid #724dff;
+  transition: border 0.5s ease;
+}
+
+i {
+  color: grey;
+  font-size: 100px;
+  opacity: 60%;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+input:focus ~ i {
+  color: #724dff;
+  transition: color 0.5s ease;
+}
+
+.form-layout {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.input-inner {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#icon-eye {
+  cursor: pointer;
+  left: unset;
+  right: 12px;
+}
+
+.input-name,
+.input-email,
+#input-pass {
+  width: 275px;
+  padding-left: 40px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+form p {
+  font-size: 14px;
+  color: #6b7280;
+}
