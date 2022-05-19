@@ -13,6 +13,10 @@
                 require_once "controller/viewController.php";
                 echo ViewController::viewCustomerList();
                 break;
+            case $baseURL.'/onboard':
+                require_once "controller/viewController.php";
+                echo ViewController::viewOnboardCustomer();
+                break;
             case $baseURL.'/login':
                 require_once "controller/viewController.php";
                 echo ViewController::viewLogin();
