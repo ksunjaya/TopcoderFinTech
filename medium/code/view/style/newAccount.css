@@ -1,0 +1,99 @@
+.container {
+    font-family: arial;
+    margin: auto;
+    width: 465px;
+    height: 1000px;
+    /* outline: dashed 1px black; */
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+header h3 {
+    padding-top: 30px;
+}
+
+header p {
+    padding-top: 5px;
+}
+
+.content {
+    padding-top: 20px;
+}
+
+.content #info {
+    color: gray;
+    margin-top: 0px;
+}
+
+.upload-container {
+    position: relative;
+}
+
+.upload-container input {
+    border-radius: 25px;
+    background: #f1f1f1;
+    outline: 2px dashed black;
+    padding: 35px 117px;
+    text-align: center !important;
+}
+
+.upload-container::before {
+    position: absolute;
+    bottom: 17px;
+    left: 130px;
+    content: " or Drag and Drop picture here ";
+    justify-content: ;
+    color: gray;
+    font-size: small;
+}
+
+.upload-btn {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 7px;
+    width: 465px;
+    color: white;
+    background-color: #724DFF;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding-top: 10px;
+}
+
+.wrapper input {
+    border-radius: 5px;
+    height: 30px;
+    margin-top: -10px;
+    background-color: #F6F6FB;
+}
+
+
+form #curr-addr {
+    width: 458px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: #F6F6FB;
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+form #submitform-btn {
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: white;
+    background-color: #724DFF;
+}
+
+/* .wrapper-full {
+    grid-column: 2/2;
+} */
