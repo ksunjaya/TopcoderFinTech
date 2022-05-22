@@ -1,8 +1,6 @@
 <?php 
 
 namespace ClanCats\Hydrahon\Query\Sql;
-require "SelectBase.php";
-require "FetchableInterface.php";
 
 /**
  * SQL query object

@@ -167,3 +167,29 @@ main > section:nth-child(2) {
   border: 1px solid #8cdba9;
   border-radius: 10px;
 }
+
+.modal-onboard .title{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+.onboard-body .lbl{
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.onboard-body .textbox{
+  width: 100%;
+  background: #F6F6FB;
+  border-radius: 5px;
+  border: none;
+  padding: 9px 5px;
+}

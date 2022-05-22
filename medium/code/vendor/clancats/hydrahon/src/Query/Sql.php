@@ -1,6 +1,4 @@
 <?php namespace ClanCats\Hydrahon\Query;
-require "controller/services/QueryBuilder/BaseQuery.php";
-require "Sql/Table.php";
 
 /**
  * SQL query object

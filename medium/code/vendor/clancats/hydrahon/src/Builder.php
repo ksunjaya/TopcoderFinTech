@@ -1,6 +1,4 @@
 <?php namespace ClanCats\Hydrahon;
-require "Translator/Mysql.php";
-require "Query/Sql.php";
 
 /**
  * Query Builder manager
@@ -20,14 +18,14 @@ class Builder
 
         // MySQL
         'mysql' => array(
-            'Query\\Sql',
-            'Mysql.php',
+            'ClanCats\\Hydrahon\\Query\\Sql',
+            'ClanCats\\Hydrahon\\Translator\\Mysql',
         ),
 
         // SQLite
         'sqlite' => array(
-            'Query\\Sql',
-            'Translator\\Sqlite',
+            'ClanCats\\Hydrahon\\Query\\Sql',
+            'ClanCats\\Hydrahon\\Translator\\Sqlite',
         ),
     );
 
@@ -99,8 +97,8 @@ class Builder
         list($queryBuilderClass, $translatorClass) = static::$grammar[$grammarKey];
 
         // create the query builder specific instances
-        $this->queryTranslator = new Translator\Mysql();
-        $this->queryBuilder = new Query\Sql();
+        $this->queryTranslator = new $translatorClass;
+        $this->queryBuilder = new $queryBuilderClass;
 
         // assign the result fetcher
         $this->queryBuilder->setResultFetcher(array($this, 'executeQuery'));

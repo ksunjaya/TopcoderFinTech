@@ -1,11 +1,6 @@
 <?php 
+
 namespace ClanCats\Hydrahon\Query\Sql;
-require "Base.php";
-require "Select.php";
-require "Insert.php";
-require "Update.php";
-require "SelectJoin.php";
-require "Truncate.php";
 
 /**
  * The table base

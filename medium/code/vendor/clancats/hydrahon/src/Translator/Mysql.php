@@ -1,5 +1,4 @@
 <?php namespace ClanCats\Hydrahon\Translator;
-require_once "controller\services\QueryBuilder\TranslatorInterface.php";
 
 /**
  * Mysql query translator

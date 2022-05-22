@@ -43,7 +43,7 @@
           </a>
         </li>
         <li>
-          <a href="onboard">
+          <a href="" data-toggle="modal" data-target="#new-onboard">
             <i class='bx bxs-bar-chart-square bx-sm'></i>
             <span class="links_name">Onboard Customer</span>
           </a>
@@ -61,8 +61,36 @@
         </div>
       </header>
       <?php echo $content ?>
+
+      <!--Modal for onboard customer-->
+      <div class="modal fade modal-onboard" id="new-onboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-inner">
+              <!-- form -->
+              <form id='customer-onboarding'>
+              <div class="modal-header">
+                <p class="title">NEW CUSTOMER ONBOARDING</p>
+              </div>
+              <div class="modal-body">
+                <div class="onboard-body" style="margin-left:50px; margin-right:50px; margin-top: 24px; margin-bottom: 24px;">
+                  <label class="lbl" for="fullname">Name</label><br>
+                  <input type="text" class="textbox" name="fullname" id="fullname" placeholder="Customer's full name"><br><br>
+                  <label class="lbl" for="email">Email</label><br>
+                  <input type="email" class="textbox" name="email" id="email" placeholder="Customer's email"><br><br>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="customBtn" id='onboard-submit' value="Generate Link">
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+
 </body>
 
 </html>
@@ -74,5 +102,11 @@
     let form = btnSubmit.parentElement;
     form.submit();
   });
+
+  const btnOnboardSubmit = document.getElementById('onboard-submit');
+  btnOnboardSubmit.addEventListener('click', function(e){
+    e.preventDefault();
+    
+  })
 
 </script>
