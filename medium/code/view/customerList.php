@@ -71,12 +71,32 @@
               <p>rafisetiadipura@gmail.com</p>
             </div>
             <div class="desc-profile">
-              <p>Country</p>
-              <p>Bandung</p>
-            </div>
-            <div class="desc-profile">
               <p>Date of birth</p>
               <p>07/03/1998</p>
+            </div>
+            <div class="desc-Profile">
+              <p>Passport Number</p>
+              <p>A0577321</p>
+            </div>
+            <div class="desc-profile">
+              <p>Country</p>
+              <p>Indonesia</p>
+            </div>
+            <div class="desc-profile">
+              <p>Nationality</p>
+              <p>Indonesian</p>
+            </div>
+            <div class="desc-profile">
+              <p>Phone Number</p>
+              <p>085122134412</p>
+            </div>
+            <div class="desc-profile">
+              <p>Occupation</p>
+              <p>Student</p>
+            </div>
+            <div class="desc-profile">
+              <p>Address</p>
+              <p>Ciumbuleuit no 11, Bandung City, West Java, Indonesia</p>
             </div>
           </div>
         </div>
