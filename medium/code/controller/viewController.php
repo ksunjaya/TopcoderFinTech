@@ -10,10 +10,6 @@ class ViewController{
     return View::createView('customerList.php', []);
   }
 
-  public static function viewOnboardCustomer(){
-    return View::createView('onboardCustomer.php', []);
-  }
-
   public static function viewLogin(){
     @session_start();
     if(isset($_SESSION['first-name'])){

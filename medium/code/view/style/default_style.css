@@ -15,7 +15,6 @@ ol,
 li,
 form,
 table,
-label,
 th,
 td {
   margin: 0;
@@ -36,10 +35,6 @@ html {
   --text-colour: white;
   --table-colour: #4a5568;
   --border-radius: 6px;
-}
-
-input {
-  all: unset;
 }
 
 /* clears the 'X' in input search from Internet Explorer */
@@ -68,15 +63,11 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: #724dff;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 12px 143px;
   text-align: center;
   display: inline-block;
   font-size: 14px;
   margin-bottom: 10px;
   cursor: pointer;
-}
-
-.customBtn:focus {
-  outline: none;
 }

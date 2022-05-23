@@ -105,18 +105,15 @@ td:nth-child(3) {
 }
 
 /* Modal Style */
-.modal-content,
-.form-onboard {
+.modal-content {
   padding-bottom: 10px;
   padding-top: 10px;
   background-color: #724dff;
 }
-.modal-inner,
-.form-onboard-inner {
+.modal-inner {
   background-color: white;
 }
-.modal-header,
-.form-onboard-header {
+.modal-header {
   place-content: center;
 }
 .modal-header img {
@@ -139,14 +136,11 @@ td:nth-child(3) {
   justify-content: space-between;
 }
 
-.modal-footer,
-.form-onboard-footer {
+.modal-footer {
   justify-content: center;
-  text-align: center;
 }
 
-.modal-footer .customBtn,
-.form-onboard-footer .customBtn {
+.modal-footer .customBtn {
   padding: 13px 60px;
   margin: 0;
 }
