@@ -53,7 +53,7 @@ class CustomerController{
     //cek dulu apakah email nya sudah terdaftar atau belum
     if($this->isEmailRegistered($email)){
       $result['result'] = false;
-      $result['msg'] = "Failed to register new customer. Email has already been registered.";
+      $result['msg'] = "Email has already been registered.";
       return json_encode($result);
     } 
 
@@ -135,12 +135,17 @@ class CustomerController{
   }
 
   private function sendEmail($recipient, $name, $url){
+    //get web url information
+    $baseURL = $_SERVER['REQUEST_URI']; 
+    $baseURL = dirname($baseURL);
+    
     try{
       $this->mail->IsHTML(true);
       $this->mail->AddAddress($recipient, $name);
       $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
       $this->mail->Subject = "Authentication Registration Link";
-      $content = "Hello " . $name . ", click the link below to complete registration.<br>".$url;
+      $content = "Hello " . $name . ", click the link below to complete registration.<br>"
+                ."<a href='localhost".$baseURL."/new-customer?link=".$url."'>Registration Link</a>";
       $this->mail->Body = $content;
 
       $this->mail->send();
