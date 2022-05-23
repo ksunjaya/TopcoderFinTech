@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '30830289c83c9c4dca89e1731d4f0eac9ecbecaa',
+        'reference' => '86752b4e49fd62617fb3135420ebb066b11760d5',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '30830289c83c9c4dca89e1731d4f0eac9ecbecaa',
+            'reference' => '86752b4e49fd62617fb3135420ebb066b11760d5',
             'dev_requirement' => false,
         ),
         'clancats/hydrahon' => array(

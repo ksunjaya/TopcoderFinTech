@@ -6,8 +6,11 @@ require_once "services/randomStringGenerator.php";
 class CustomerController{
   protected $db, $builder;
   protected $h, $customer;
+  protected $mail;
+
   public function __construct(){
     $this->db = new MySQLDB();
+    $this->initMailer();
 
     $connection = new PDO('mysql:host=localhost;dbname=fintech;charset=utf8', 'root', '');
     $this->h = new \ClanCats\Hydrahon\Builder('mysql', function($query, $queryString, $queryParameters) use($connection)
@@ -39,26 +42,40 @@ class CustomerController{
 
   //dipanggil dari method POST, return TRUE kalau berhasil masukin data ke db.
   public function createNewUser(){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $post = json_decode(file_get_contents('php://input'), true);
+    $name = $post['name'];
+    $email = $post['email'];
     //data cleaning:
     $name = $this->db->escapeString($name);
     $email = $this->db->escapeString($email);
     
+    $result = array();
     //cek dulu apakah email nya sudah terdaftar atau belum
-    if($this->isEmailRegistered($email)) return false;
+    if($this->isEmailRegistered($email)){
+      $result['result'] = false;
+      $result['msg'] = "Failed to register new customer. Email has already been registered.";
+      return json_encode($result);
+    } 
 
     //bikin url random nya
     $link = $this->generateURL();
 
     //jalanin query
-    $this->client->insert([
+    $this->customer->insert([
                   'name' => $name,
                   'email' => $email,
                   'link' => $link
                   ])->execute();
-  
-    return true;
+      
+    $status = $this->sendEmail($email, $name, $link);
+    if($status == true) {
+      $result['result'] = true;
+      $result['email'] = $email;
+    }else{
+      $result['result'] = false;
+      $result['msg'] = $status;
+    }
+    return json_encode($result);
   }
 
   /**
@@ -93,6 +110,44 @@ class CustomerController{
     }while($this->isURLRegistered($url));
 
     return $url;
+  }
+
+  private function initMailer(){
+    $ini_array = parse_ini_file("properties.ini");
+    $this->mail = new PHPMailer\PHPMailer\PHPMailer();
+    $this->mail->IsSMTP();
+    $this->mail->Mailer = "smtp";
+    //$this->mail->SMTPDebug  = 1;  
+    $this->mail->SMTPAuth   = TRUE;
+    $this->mail->SMTPSecure = "tls";
+    $this->mail->Port       = 587;
+    $this->mail->Host       = "smtp.gmail.com";
+    $this->mail->Username   = $ini_array['email-username'];
+    $this->mail->Password   = $ini_array['email-password'];
+    //untuk bypass ssl, ga rekomen pisan.
+    $this->mail->SMTPOptions = [
+      'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true,
+      ]
+    ];
+  }
+
+  private function sendEmail($recipient, $name, $url){
+    try{
+      $this->mail->IsHTML(true);
+      $this->mail->AddAddress($recipient, $name);
+      $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
+      $this->mail->Subject = "Authentication Registration Link";
+      $content = "Hello " . $name . ", click the link below to complete registration.<br>".$url;
+      $this->mail->Body = $content;
+
+      $this->mail->send();
+      return true;
+    }catch(Exception $e){
+      return "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+    }
   }
 }
 ?>

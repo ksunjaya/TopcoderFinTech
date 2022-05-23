@@ -83,8 +83,10 @@
               <div class="modal-footer">
                 <input type="submit" class="customBtn" id='onboard-submit' value="Generate Link">
               </div>
+              <!-- TODO : Styling! -->
+              <p id="onboard-status" style="text-align:center; padding-left: 10px; padding-right: 10px; padding-bottom: 10px"></p>
               </form>
-            </div>
+             </div>
           </div>
         </div>
       </div>
@@ -103,10 +105,46 @@
     form.submit();
   });
 
+  const txtName = document.getElementById('fullname');
+  const txtEmail = document.getElementById('email');
   const btnOnboardSubmit = document.getElementById('onboard-submit');
   btnOnboardSubmit.addEventListener('click', function(e){
     e.preventDefault();
-    
+    setDisabledOnboardForm(true);
+    btnOnboardSubmit.value = 'Processing..';
+
+    let input2 = {	
+      "name" : document.getElementById('fullname').value,
+      "email" : document.getElementById('email').value,
+    }
+    let init2 = {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(input2)
+    }
+    fetch('send-onboard', init2)
+    .then(function(response){
+      return response.json();
+    }).then(function(data){
+      console.log(data);
+      let p = document.getElementById("onboard-status");
+      if(data.result == true){
+        p.innerHTML = "Email has been sent to customer.";
+      }else{
+        p.innerHTML = data.msg;
+      }
+
+      setDisabledOnboardForm(false);
+      btnOnboardSubmit.value = 'Generate Link';
+    });
   })
+
+  function setDisabledOnboardForm(isDisabled){
+    txtName.disabled = isDisabled;
+    txtEmail.disabled = isDisabled;
+    btnOnboardSubmit.disabled = isDisabled;
+  }
 
 </script>

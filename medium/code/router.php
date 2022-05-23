@@ -50,6 +50,11 @@
                 session_destroy();
                 header("Location: login");
                 break;
+            case $baseURL.'/send-onboard':
+                require_once "controller/customerController.php";
+                $customerController = new CustomerController();
+                echo $customerController->createNewUser();
+                break;
             default :
                 echo '404 not found';
                 break;
