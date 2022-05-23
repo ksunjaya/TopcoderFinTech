@@ -78,6 +78,16 @@ class CustomerController{
     return json_encode($result);
   }
 
+  public function isLinkRegistered($link){
+    $link = $this->db->escapeString($link);
+    $query_result = $this->customer->select()
+            ->where('link', $link)
+            ->get();
+
+    if(sizeof($query_result) == 0) return false;
+    else return true;
+  }
+
   /**
    * Cek apakah email nya sudah ada di database atau belum
    * @param email $email yang bakal di cek

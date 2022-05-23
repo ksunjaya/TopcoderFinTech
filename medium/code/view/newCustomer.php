@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="view/style/newCustomer.css">
-        <title>Setup Account</title>
+        <title>Customer Registration</title>
     </head>
     <body>
         <div class="container">

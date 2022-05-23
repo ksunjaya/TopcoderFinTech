@@ -24,7 +24,20 @@ class ViewController{
   }
 
   public static function viewNewCustomer(){
-    return View::createNewCustomerView('newCustomer.php', []); 
+    if(!isset($_GET['link'])){
+      return View::createNewCustomerView('newCustomerError.php', [
+        'message' => "Customer link is not defined. Make sure you've clicked the right link on your email."
+      ]);
+    }
+    require_once 'controller/customerController.php';
+    $cc = new CustomerController();
+    if($cc->isLinkRegistered($_GET['link'])){
+      return View::createNewCustomerView('newCustomer.php', []); 
+    }else{
+      return View::createNewCustomerView('newCustomerError.php', [
+        'message' => "Your registration link is invalid. Please contact our customer support if you believe this is a mistake."
+      ]);
+    }
   }
   
 }
