@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style/newAccount.css">
+        <link rel="stylesheet" href="view/style/newCustomer.css">
         <title>Setup Account</title>
     </head>
     <body>
@@ -20,7 +20,7 @@
                     <div class="upload-container">
                         <input type="file" id="passport_upload">
                     </div>
-                    <button class="upload-btn" onclick="uploadFile()">Upload</button>
+                    <!-- <button class="upload-btn" onclick="uploadFile()">Upload</button> -->
                     
 
                     <label for="">Record a 5 second selfie video</label>
@@ -28,7 +28,7 @@
                     <div class="upload-container">
                         <input type="file" id="passport_upload">
                     </div>
-                    <button class="upload-btn" onclick="uploadFile()">Upload</button>
+                    <!-- <button class="upload-btn" onclick="uploadFile()">Upload</button> -->
                     
                     <div class="wrapper">
                         <label for="passport-number">Passport Number</label>

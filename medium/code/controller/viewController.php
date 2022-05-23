@@ -22,6 +22,10 @@ class ViewController{
   public static function viewSignup(){
     return View::createAuthView('signup.php', []);  
   }
+
+  public static function viewNewCustomer(){
+    return View::createNewCustomerView('newCustomer.php', []); 
+  }
   
 }
 ?>

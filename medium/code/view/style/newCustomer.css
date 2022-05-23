@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+*{
+    font-family: 'Open Sans';
+}
+
+body{
+    height: 100%;
+    overflow: hidden;
+}
+
 .container {
-    font-family: arial;
+    /* font-family: arial; */
     margin: auto;
     width: 465px;
     height: 1000px;
@@ -13,11 +24,12 @@ header {
 }
 
 header h3 {
+    letter-spacing: 0.16em;
     padding-top: 30px;
 }
 
 header p {
-    padding-top: 5px;
+    font-size: 16px;
 }
 
 .content {
@@ -31,6 +43,7 @@ header p {
 
 .upload-container {
     position: relative;
+    margin-bottom: 12px;
 }
 
 .upload-container input {
@@ -46,7 +59,7 @@ header p {
     bottom: 17px;
     left: 130px;
     content: " or Drag and Drop picture here ";
-    justify-content: ;
+    justify-content: center;
     color: gray;
     font-size: small;
 }
@@ -67,20 +80,24 @@ header p {
     padding-top: 10px;
 }
 
-.wrapper input {
+.wrapper input{
     border-radius: 5px;
-    height: 30px;
-    margin-top: -10px;
+    margin-top: -5px;
     background-color: #F6F6FB;
+    padding: 9px 5px;
+    border: 1px solid #989898;
 }
 
 
 form #curr-addr {
-    width: 458px;
-    margin-bottom: 25px;
+    width: 100%;
+    margin-bottom: 15px;
     border-radius: 5px;
-    height: 30px;
+    margin-top: 5px;
     background-color: #F6F6FB;
+    padding: 9px 5px;
+    border: none;
+    border: 1px solid #989898;
 }
 
 .submit-btn {
@@ -92,6 +109,7 @@ form #submitform-btn {
     border-radius: 10px;
     color: white;
     background-color: #724DFF;
+    border: none;
 }
 
 /* .wrapper-full {

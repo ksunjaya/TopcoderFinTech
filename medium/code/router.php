@@ -21,6 +21,10 @@
                 require_once "controller/viewController.php";
                 echo ViewController::viewSignup();
                 break;
+            case $baseURL.'/new-customer':
+                require_once "controller/viewController.php";
+                echo ViewController::viewNewCustomer();
+                break;
             default :
                 echo '404 not found';
                 break;
