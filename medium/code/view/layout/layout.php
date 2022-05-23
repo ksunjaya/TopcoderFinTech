@@ -111,7 +111,9 @@
   btnOnboardSubmit.addEventListener('click', function(e){
     e.preventDefault();
     setDisabledOnboardForm(true);
+    btnOnboardSubmit.style.color = 'black';
     btnOnboardSubmit.value = 'Processing..';
+    btnOnboardSubmit.style.backgroundColor = '#F6F6FB';
 
     let input2 = {	
       "name" : document.getElementById('fullname').value,
@@ -137,6 +139,8 @@
       }
 
       setDisabledOnboardForm(false);
+      btnOnboardSubmit.style.backgroundColor = '#724DFF';
+      btnOnboardSubmit.style.color = 'white';
       btnOnboardSubmit.value = 'Generate Link';
     });
   })
