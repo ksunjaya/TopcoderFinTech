@@ -23,7 +23,30 @@
     </tr>
   </thead>
   <tbody class="body-table">
-    <tr>
+    <?php
+      for($i = 0; $i < sizeof($customer_list); $i++){
+        //buat status
+        $status = 'Error';
+        if($customer_list[$i]->status == 0) $status = 'Pending';
+        else if($customer_list[$i]->status == 1) $status = 'Awaiting Verification';
+
+        echo '
+          <td class="td-table">'.($i+1).'</td> 
+          <td class="td-table">'.$customer_list[$i]->name.'</td>
+          <td class="td-table">'.$customer_list[$i]->email.'</td>
+          <td class="img-thumbnail"><img src="src/thumbnail.png" alt=""></td>
+          <td class="status">
+            <p>'.$status.'</p>
+          </td>
+          <td class="action">
+            <button data-toggle="modal" data-target="#detail">
+              Detail
+            </button>
+          </td>
+        ';
+      }
+    ?>
+    <!-- <tr>
       <td class="td-table">1</td>
       <td class="td-table">Rafi</td>
       <td class="td-table">rafisetiadipura@gmail.com</td>
@@ -50,7 +73,7 @@
           Detail
         </button>
       </td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

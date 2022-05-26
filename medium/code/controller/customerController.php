@@ -2,6 +2,7 @@
 require 'vendor/autoload.php';
 require_once "services/mySQLDB.php";
 require_once "services/randomStringGenerator.php";
+require_once "model/customer.php";
 
 class CustomerController{
   protected $db, $builder;
@@ -125,6 +126,16 @@ class CustomerController{
     //$result = array();
     $result['status'] = true;
     return json_encode($result);
+  }
+
+  public function getAll(){
+    $query_result = $this->customer->select(['id', 'name', 'email', 'status'])
+                      ->get();
+    $result = array();
+    for($i = 0; $i < sizeof($query_result); $i++){
+      $result[] = new Customer($query_result[$i]['id'], $query_result[$i]['name'], $query_result[$i]['email'], $query_result[$i]['status']);
+    }
+    return $result;
   }
 
   public function uploadFile($name, $userid){

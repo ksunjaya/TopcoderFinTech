@@ -29,7 +29,7 @@
   </head>
   <body>
     <div>
-      <img src="img/done.png">
+      <img src="src/done.png">
       <h3>Your Document is Under Review</h3>
       <p>Thank you for filling the form. You will receive an email after verification is done.</p>
       <p>70% of accounts are verified within a day, but users may experience delays up to three days.</p>

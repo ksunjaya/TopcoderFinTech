@@ -7,7 +7,13 @@ class ViewController{
   }
 
   public static function viewCustomerList(){
-    return View::createView('customerList.php', []);
+    require_once 'controller/customerController.php';
+    $cc = new CustomerController();
+    $customer_list = $cc->getAll();
+
+    return View::createView('customerList.php', [
+      'customer_list' => $customer_list
+    ]);
   }
 
   public static function viewLogin(){
