@@ -23,5 +23,6 @@ CREATE TABLE customer(
   country VARCHAR(50),
   phone VARCHAR(20),
   occupation VARCHAR(40),
-  address VARCHAR(127)
+  address VARCHAR(127),
+  status INT(1)
 );

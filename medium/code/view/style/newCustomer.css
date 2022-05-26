@@ -6,7 +6,7 @@
 
 body{
     height: 100%;
-    overflow: hidden;
+    
 }
 
 .container {
@@ -91,6 +91,7 @@ header p {
 
 form #curr-addr {
     width: 100%;
+    box-sizing: border-box;
     margin-bottom: 15px;
     border-radius: 5px;
     margin-top: 5px;

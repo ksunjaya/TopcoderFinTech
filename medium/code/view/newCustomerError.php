@@ -459,7 +459,7 @@
           </div>
           <div class="col-md-6 align-self-center">
             <h1>400</h1>
-            <h2>UH OH! You're lost.</h2>
+            <h2>UH OH! Bad Request.</h2>
             <p style="font-size: 1.3em">
               <?php echo $message?>
             </p>

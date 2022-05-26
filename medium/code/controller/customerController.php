@@ -64,7 +64,8 @@ class CustomerController{
     $this->customer->insert([
                   'name' => $name,
                   'email' => $email,
-                  'link' => $link
+                  'link' => $link,
+                  'status' => 0
                   ])->execute();
       
     $status = $this->sendEmail($email, $name, $link);
@@ -77,15 +78,75 @@ class CustomerController{
     }
     return json_encode($result);
   }
+  
+  //handle link yang dikasih ke user di email.
+  public function registerCustomer(){
+    $passport_number = $this->db->escapeString($_POST['passport-number']);
+    $dob = $this->db->escapeString($_POST['dob']);
+    $nationality = $this->db->escapeString($_POST['nationality']);
+    $cor = $this->db->escapeString($_POST['cor']);
+    $phone_number = $this->db->escapeString($_POST['phone-number']);
+    $occupation = $this->db->escapeString($_POST['occupation']);
+    $curr_addr = $this->db->escapeString($_POST['curr-addr']);
+    $userid = $this->db->escapeString($_POST['cust-id']);
+    //result:
+    $result = array();
+    //urus upload files dulu
+    mkdir(dirname(__DIR__).'\\uploads\\'.$userid);
+    $s_passport = $this->uploadFile('passport-img', $userid);
+    if($s_passport == NULL) {
+      $result['status'] = false;
+      $result['msg'] = 'Passport upload failed.';
+      return json_encode($result);
+    }
+    $s_video = $this->uploadFile('video', $userid);
+    if($s_video == NULL){
+      $result['status'] = false;
+      $result['msg'] = 'Video upload failed.';
+      return json_encode($result);
+    }
+    //urus db
+    $this->customer->update()
+      ->set([
+        'passport_path' => $s_passport,
+        'video_path' => $s_video,
+        'passport_number' => $passport_number,
+        'birth_date' => $dob,
+        'nationality' => $nationality,
+        'country' => $cor,
+        'phone' => $phone_number,
+        'occupation' => $occupation,
+        'address' => $curr_addr,
+        'status' => 1
+      ])
+      ->where('id', $userid)
+    ->execute();
+
+    //$result = array();
+    $result['status'] = true;
+    return json_encode($result);
+  }
+
+  public function uploadFile($name, $userid){
+    $destination = dirname(__DIR__).'\\uploads\\'.$userid.'\\';
+    if($_FILES[$name]['name'] != ""){
+      $oldname = $_FILES[$name]['tmp_name'];
+      $newname = $destination.$_FILES[$name]['name'];
+      if(move_uploaded_file($oldname, $newname)){
+        return $newname;
+      }else return NULL;
+    }else return NULL;
+  }
 
   public function isLinkRegistered($link){
     $link = $this->db->escapeString($link);
     $query_result = $this->customer->select()
             ->where('link', $link)
+            ->where('status', 0)
             ->get();
 
-    if(sizeof($query_result) == 0) return false;
-    else return true;
+    if(sizeof($query_result) == 0) return NULL;
+    else return $query_result[0]['id'];
   }
 
   /**

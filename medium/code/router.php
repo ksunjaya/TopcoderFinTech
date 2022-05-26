@@ -25,6 +25,13 @@
                 require_once "controller/viewController.php";
                 echo ViewController::viewNewCustomer();
                 break;
+            case $baseURL.'/new-customer-s':
+                require_once "controller/viewController.php";
+                echo ViewController::viewNewCustomerSuccess();
+                break;
+            case $baseURL.'/tes':
+                echo dirname(__DIR__).'\\uploads';
+                break;
             default :
                 echo '404 not found';
                 break;
@@ -58,6 +65,11 @@
                 require_once "controller/customerController.php";
                 $customerController = new CustomerController();
                 echo $customerController->createNewUser();
+                break;
+            case $baseURL.'/c-register':
+                require_once "controller/customerController.php";
+                $customerController = new CustomerController();
+                echo $customerController->registerCustomer();
                 break;
             default :
                 echo '404 not found';

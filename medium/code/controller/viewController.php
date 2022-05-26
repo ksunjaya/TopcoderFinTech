@@ -13,7 +13,7 @@ class ViewController{
   public static function viewLogin(){
     @session_start();
     if(isset($_SESSION['first-name'])){
-      header('Location: onboard'); //sudah melakukan login
+      header('Location: customer-list'); //sudah melakukan login
       return;
     } 
     return View::createAuthView('login.php', []);  
@@ -31,13 +31,20 @@ class ViewController{
     }
     require_once 'controller/customerController.php';
     $cc = new CustomerController();
-    if($cc->isLinkRegistered($_GET['link'])){
-      return View::createNewCustomerView('newCustomer.php', []); 
+    $custId = $cc->isLinkRegistered($_GET['link']);
+    if($custId != NULL){
+      return View::createNewCustomerView('newCustomer.php', [
+        'id' => $custId
+      ]); 
     }else{
       return View::createNewCustomerView('newCustomerError.php', [
         'message' => "Your registration link is invalid. Please contact our customer support if you believe this is a mistake."
       ]);
     }
+  }
+
+  public static function viewNewCustomerSuccess(){
+    return View::createNewCustomerView('newCustomerSuccess.php', []);
   }
   
 }
