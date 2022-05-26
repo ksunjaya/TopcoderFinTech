@@ -138,6 +138,15 @@ class CustomerController{
     return $result;
   }
 
+  //AJAX 
+  public function getDetailsFromId(){
+    $id = $this->db->escapeString($_GET['id']);
+    $query_result = $this->customer->select()
+                      ->where('id', $id)
+                      ->get();
+    return json_encode($query_result[0]);
+  }
+
   public function uploadFile($name, $userid){
     $destination = dirname(__DIR__).'\\uploads\\'.$userid.'\\';
     if($_FILES[$name]['name'] != ""){

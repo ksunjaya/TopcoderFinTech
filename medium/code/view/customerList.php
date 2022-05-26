@@ -39,44 +39,16 @@
             <p>'.$status.'</p>
           </td>
           <td class="action">
-            <button data-toggle="modal" data-target="#detail">
+            <button onclick="openModal('.$customer_list[$i]->id.')">
               Detail
             </button>
           </td>
         ';
       }
     ?>
-    <!-- <tr>
-      <td class="td-table">1</td>
-      <td class="td-table">Rafi</td>
-      <td class="td-table">rafisetiadipura@gmail.com</td>
-      <td class="img-thumbnail"><img src="src/thumbnail.png" alt=""></td>
-      <td class="status">
-        <p>Pending</p>
-      </td>
-      <td class="action">
-        <button data-toggle="modal" data-target="#detail">
-          Detail
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td class="td-table">2</td>
-      <td class="td-table">Erick Saputra</td>
-      <td class="td-table">ericksaputra@gmail.com</td>
-      <td class="img-thumbnail"><img src="src/thumbnail.png" alt=""></td>
-      <td class="status">
-        <p>Pending</p>
-      </td>
-      <td class="action">
-        <button data-toggle="modal" data-target="#detail">
-          Detail
-        </button>
-      </td>
-    </tr> -->
   </tbody>
 </table>
-<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-inner">
@@ -87,39 +59,39 @@
           <div class="detail-profile">
             <div class="desc-profile">
               <p>Name</p>
-              <p>Moch Rafi Adnan Setiadipura</p>
+              <p id='name'>Moch Rafi Adnan Setiadipura</p>
             </div>
             <div class="desc-profile">
               <p>Email</p>
-              <p>rafisetiadipura@gmail.com</p>
+              <p id='email'>rafisetiadipura@gmail.com</p>
             </div>
             <div class="desc-profile">
               <p>Date of birth</p>
-              <p>07/03/1998</p>
+              <p id='dob'>07/03/1998</p>
             </div>
-            <div class="desc-Profile">
+            <div class="desc-profile">
               <p>Passport Number</p>
-              <p>A0577321</p>
+              <p id='p-number'>A0577321</p>
             </div>
             <div class="desc-profile">
               <p>Country</p>
-              <p>Indonesia</p>
+              <p id='country'>Indonesia</p>
             </div>
             <div class="desc-profile">
               <p>Nationality</p>
-              <p>Indonesian</p>
+              <p id='nationality'>Indonesian</p>
             </div>
             <div class="desc-profile">
               <p>Phone Number</p>
-              <p>085122134412</p>
+              <p id='phone'>085122134412</p>
             </div>
             <div class="desc-profile">
               <p>Occupation</p>
-              <p>Student</p>
+              <p id='occupation'>Student</p>
             </div>
             <div class="desc-profile">
               <p>Address</p>
-              <p>Ciumbuleuit no 11, Bandung City, West Java, Indonesia</p>
+              <p id='address'>Ciumbuleuit no 11, Bandung City, West Java, Indonesia</p>
             </div>
           </div>
         </div>
@@ -130,3 +102,34 @@
     </div>
   </div>
 </div>
+
+<script>
+
+const p_name = document.getElementById('name');
+const p_email = document.getElementById('email');
+const p_dob = document.getElementById('dob');
+const p_pnumber = document.getElementById('p-number');
+const p_country = document.getElementById('country');
+const p_nationality = document.getElementById('nationality');
+const p_phone = document.getElementById('phone');
+const p_occupation = document.getElementById('occupation');
+const p_address = document.getElementById('address');
+
+function openModal(id){
+  fetch('customer-detail?id='+id)
+	.then(function(response){
+		return response.json();
+	}).then(function(data){
+    p_name.innerHTML = data.name;
+    p_email.innerHTML = data.email;
+    p_dob.innerHTML = data.birth_date;
+    p_pnumber.innerHTML = data.passport_number;
+    p_country.innerHTML = data.country;
+    p_nationality.innerHTML = data.nationality;
+    p_phone.innerHTML = data.phone;
+    p_occupation.innerHTML = data.occupation;
+    p_address.innerHTML = data.address;
+	});
+  $('#detail').modal('show');
+}
+</script>

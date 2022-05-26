@@ -29,6 +29,11 @@
                 require_once "controller/viewController.php";
                 echo ViewController::viewNewCustomerSuccess();
                 break;
+            case $baseURL.'/customer-detail':
+                require_once "controller/customerController.php";
+                $customerController = new CustomerController();
+                echo $customerController->getDetailsFromId();
+                break;
             case $baseURL.'/tes':
                 echo dirname(__DIR__).'\\uploads';
                 break;
