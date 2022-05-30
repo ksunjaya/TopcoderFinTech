@@ -115,6 +115,8 @@
     btnOnboardSubmit.style.color = 'black';
     btnOnboardSubmit.value = 'Processing..';
     btnOnboardSubmit.style.backgroundColor = '#F6F6FB';
+    let p = document.getElementById("onboard-status");
+    p.style.display="none";
 
     let input2 = {	
       "name" : txtName.value,
@@ -136,6 +138,7 @@
     }).then(function(data){
       console.log(data);
       let p = document.getElementById("onboard-status");
+      p.style.display="block";
       if(data.result == true){
         p.innerHTML = "Email has been sent to customer.";
       }else{

@@ -117,7 +117,7 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .catch(error => console.error('Error:', error))
             .then(response => {
                 console.log(response);

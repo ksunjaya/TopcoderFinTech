@@ -159,7 +159,7 @@ class CustomerController{
   }
 
   public function uploadFile($name, $userid){
-    $destination = dirname(__DIR__).'\\uploads\\'.$userid.'\\';
+    $destination = dirname(__DIR__).'/uploads/'.$userid.'/';
     if($_FILES[$name]['name'] != ""){
       $oldname = $_FILES[$name]['tmp_name'];
       $newname = $destination.$_FILES[$name]['name'];
@@ -246,8 +246,23 @@ class CustomerController{
       $this->mail->AddAddress($recipient, $name);
       $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
       $this->mail->Subject = "Authentication Registration Link";
-      $content = "Hello " . $name . ", click the link below to complete registration.<br>"
-                ."<a href='".$this->hostname.$baseURL."/new-customer?link=".$url."'>Registration Link</a>";
+      $content = "Hello ".$name."!,
+      <br><br>
+      Thank you for registering to our Fintech Website!
+      <br><br>
+      First of all, we need a little more  information about you 
+      so you can use our website smoothly.
+      <br><br>
+      Please click the link to complete your registration:
+      <a href='".$this->hostname.$baseURL."/new-customer?link=".$url."'>Registration Link</a>
+      <br><br>
+      Thank you for being a part of our Fintech community!
+      <br><br>
+      Best Regards, 
+      Fintech team
+      <br>
+      NB:
+      if it wasn't you, please ignore this email";
       $this->mail->Body = $content;
 
       $this->mail->send();
