@@ -9,6 +9,9 @@ class ViewController{
   public static function viewCustomerList(){
     require_once 'controller/customerController.php';
     $cc = new CustomerController();
+    if(isset($_GET['c-name']) && $_GET['c-name'] != ''){
+      $customer_list = $cc->getAll($_GET['c-name']);
+    }
     $customer_list = $cc->getAll();
 
     return View::createView('customerList.php', [

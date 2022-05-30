@@ -25,7 +25,7 @@
   color: #1f384c;
   opacity: 0.3;
 }
-.input-search input {
+.input-search #text {
   all: unset;
   width: 300px;
   padding: 10px;

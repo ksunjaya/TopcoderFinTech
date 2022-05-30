@@ -4,10 +4,12 @@
       <!-- Title Menu -->
       <p>Customer List</p>
 
-      <div class="input-search">
-        <input type="search" placeholder="Search Customer..">
-        <img src="src/search.png" alt="">
-      </div>
+      <!-- <div class="input-search">
+        <form action="" method="GET">
+          <input type="search" id="text" name="c-name" placeholder="Search Customer..">
+          <img src="src/search.png" id="img-submit" alt="">
+        </form>
+      </div> -->
     </div>
   </div>
 </div>
@@ -105,31 +107,38 @@
 
 <script>
 
-const p_name = document.getElementById('name');
-const p_email = document.getElementById('email');
-const p_dob = document.getElementById('dob');
-const p_pnumber = document.getElementById('p-number');
-const p_country = document.getElementById('country');
-const p_nationality = document.getElementById('nationality');
-const p_phone = document.getElementById('phone');
-const p_occupation = document.getElementById('occupation');
-const p_address = document.getElementById('address');
+  const p_name = document.getElementById('name');
+  const p_email = document.getElementById('email');
+  const p_dob = document.getElementById('dob');
+  const p_pnumber = document.getElementById('p-number');
+  const p_country = document.getElementById('country');
+  const p_nationality = document.getElementById('nationality');
+  const p_phone = document.getElementById('phone');
+  const p_occupation = document.getElementById('occupation');
+  const p_address = document.getElementById('address');
 
-function openModal(id){
-  fetch('customer-detail?id='+id)
-	.then(function(response){
-		return response.json();
-	}).then(function(data){
-    p_name.innerHTML = data.name;
-    p_email.innerHTML = data.email;
-    p_dob.innerHTML = data.birth_date;
-    p_pnumber.innerHTML = data.passport_number;
-    p_country.innerHTML = data.country;
-    p_nationality.innerHTML = data.nationality;
-    p_phone.innerHTML = data.phone;
-    p_occupation.innerHTML = data.occupation;
-    p_address.innerHTML = data.address;
-	});
-  $('#detail').modal('show');
-}
+  function openModal(id){
+    fetch('customer-detail?id='+id)
+    .then(function(response){
+      return response.json();
+    }).then(function(data){
+      p_name.innerHTML = data.name;
+      p_email.innerHTML = data.email;
+      p_dob.innerHTML = data.birth_date;
+      p_pnumber.innerHTML = data.passport_number;
+      p_country.innerHTML = data.country;
+      p_nationality.innerHTML = data.nationality;
+      p_phone.innerHTML = data.phone;
+      p_occupation.innerHTML = data.occupation;
+      p_address.innerHTML = data.address;
+    });
+    $('#detail').modal('show');
+  }
+
+  //buat tombol submit
+  const img_submit = document.getElementById('img-submit');
+  const form = img_submit.parentNode;
+  img_submit.addEventListener('click', function(e){
+    form.submit();
+  });
 </script>

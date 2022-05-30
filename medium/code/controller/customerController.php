@@ -128,9 +128,13 @@ class CustomerController{
     return json_encode($result);
   }
 
-  public function getAll(){
+  public function getAll($name_filter = NULL){
+    if($name_filter == NULL) 
+      $name_filter = "";
+    $name_filter = $this->db->escapeString($name_filter);
     $query_result = $this->customer->select(['id', 'name', 'email', 'status'])
-                      ->get();
+                        ->where('name', 'like', '%'.$name_filter.'%')
+                        ->get();
     $result = array();
     for($i = 0; $i < sizeof($query_result); $i++){
       $result[] = new Customer($query_result[$i]['id'], $query_result[$i]['name'], $query_result[$i]['email'], $query_result[$i]['status']);
