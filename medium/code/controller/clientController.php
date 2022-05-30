@@ -7,8 +7,13 @@ class ClientController{
   protected $h, $client;
   public function __construct(){
     $this->db = new MySQLDB();
-
-    $connection = new PDO('mysql:host=localhost;dbname=fintech;charset=utf8', 'root', '');
+    
+    $ini_array = parse_ini_file("properties.ini");
+    $servername = $ini_array['servername'];
+    $dbname = $ini_array['dbname'];
+    $username = $ini_array['username'];
+    $password = $ini_array['password'];
+    $connection = new PDO('mysql:host='.$servername.';dbname='.$dbname.';charset=utf8', $username, $password);
     $this->h = new \ClanCats\Hydrahon\Builder('mysql', function($query, $queryString, $queryParameters) use($connection)
     {
       $statement = $connection->prepare($queryString);

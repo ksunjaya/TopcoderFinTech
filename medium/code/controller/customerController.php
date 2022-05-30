@@ -8,12 +8,19 @@ class CustomerController{
   protected $db, $builder;
   protected $h, $customer;
   protected $mail;
+  private $hostname;
 
   public function __construct(){
     $this->db = new MySQLDB();
+    $ini_array = parse_ini_file("properties.ini");
+    $this->hostname = $ini_array['hostname'];
     $this->initMailer();
 
-    $connection = new PDO('mysql:host=localhost;dbname=fintech;charset=utf8', 'root', '');
+    $servername = $ini_array['servername'];
+    $dbname = $ini_array['dbname'];
+    $username = $ini_array['username'];
+    $password = $ini_array['password'];
+    $connection = new PDO('mysql:host='.$servername.';dbname='.$dbname.';charset=utf8', $username, $password);
     $this->h = new \ClanCats\Hydrahon\Builder('mysql', function($query, $queryString, $queryParameters) use($connection)
     {
       $statement = $connection->prepare($queryString);
@@ -240,7 +247,7 @@ class CustomerController{
       $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
       $this->mail->Subject = "Authentication Registration Link";
       $content = "Hello " . $name . ", click the link below to complete registration.<br>"
-                ."<a href='localhost".$baseURL."/new-customer?link=".$url."'>Registration Link</a>";
+                ."<a href='".$this->hostname.$baseURL."/new-customer?link=".$url."'>Registration Link</a>";
       $this->mail->Body = $content;
 
       $this->mail->send();
