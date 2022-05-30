@@ -77,7 +77,7 @@
                   <label class="lbl" for="fullname">Name</label><br>
                   <input type="text" class="textbox" name="fullname" id="fullname" placeholder="Customer's full name"><br><br>
                   <label class="lbl" for="email">Email</label><br>
-                  <input type="email" class="textbox" name="email" id="email" placeholder="Customer's email"><br><br>
+                  <input type="email" class="textbox" name="email" id="f-email" placeholder="Customer's email"><br><br>
                 </div>
               </div>
               <div class="modal-footer">
@@ -106,7 +106,8 @@
   });
 
   const txtName = document.getElementById('fullname');
-  const txtEmail = document.getElementById('email');
+  const txtEmail = document.getElementById('f-email');
+  console.log(txtEmail);
   const btnOnboardSubmit = document.getElementById('onboard-submit');
   btnOnboardSubmit.addEventListener('click', function(e){
     e.preventDefault();
@@ -116,8 +117,8 @@
     btnOnboardSubmit.style.backgroundColor = '#F6F6FB';
 
     let input2 = {	
-      "name" : document.getElementById('fullname').value,
-      "email" : document.getElementById('email').value,
+      "name" : txtName.value,
+      "email" : txtEmail.value
     }
     let init2 = {
       method: 'post',
@@ -126,6 +127,9 @@
       },
       body: JSON.stringify(input2)
     }
+
+    console.log(txtEmail.value);
+
     fetch('send-onboard', init2)
     .then(function(response){
       return response.json();

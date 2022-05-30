@@ -120,6 +120,7 @@
             .then(response => response.json())
             .catch(error => console.error('Error:', error))
             .then(response => {
+                console.log(response);
                 if(response.status == true){
                     window.location.replace('new-customer-s');
                 }else{

@@ -33,6 +33,7 @@
         else if($customer_list[$i]->status == 1) $status = 'Awaiting Verification';
 
         echo '
+          <tr>
           <td class="td-table">'.($i+1).'</td> 
           <td class="td-table">'.$customer_list[$i]->name.'</td>
           <td class="td-table">'.$customer_list[$i]->email.'</td>
@@ -45,6 +46,7 @@
               Detail
             </button>
           </td>
+          </tr>
         ';
       }
     ?>
@@ -136,9 +138,9 @@
   }
 
   //buat tombol submit
-  const img_submit = document.getElementById('img-submit');
-  const form = img_submit.parentNode;
-  img_submit.addEventListener('click', function(e){
-    form.submit();
-  });
+  // const img_submit = document.getElementById('img-submit');
+  // const form = img_submit.parentNode;
+  // img_submit.addEventListener('click', function(e){
+  //   form.submit();
+  // });
 </script>
