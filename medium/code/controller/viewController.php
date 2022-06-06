@@ -3,7 +3,7 @@ require_once "services/view.php";
 class ViewController{
 
   public static function viewIndex(){
-    return View::createView('index.php', []);  
+    header('Location: login');
   }
 
   public static function viewCustomerList(){

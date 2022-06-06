@@ -9,7 +9,7 @@ if(isset($_GET['status']) && $_GET['status'] == 2)
 else if(isset($_GET['status']) && $_GET['status'] == 1)
     echo "
         <div class='ok-box'>
-            <p>Registration complete</p>
+            <p>Registration completed</p>
         </div>
         ";
 ?>
