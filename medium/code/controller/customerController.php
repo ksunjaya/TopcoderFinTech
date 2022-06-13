@@ -87,6 +87,42 @@ class CustomerController{
     return json_encode($result);
   }
   
+  private function sendEmail($recipient, $name, $url){
+    //get web url information
+    $baseURL = $_SERVER['REQUEST_URI']; 
+    $baseURL = dirname($baseURL);
+    
+    try{
+      $this->mail->IsHTML(true);
+      $this->mail->AddAddress($recipient, $name);
+      $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
+      $this->mail->Subject = "Authentication Registration Link";
+      $content = "Hello ".$name."!,
+      <br><br>
+      Thank you for registering to our Fintech Website!
+      <br><br>
+      First of all, we need a little more information about you 
+      so you can use our website smoothly.
+      <br><br>
+      Please click the link to complete your registration:
+      <a href='".$this->hostname.$baseURL."/new-customer?link=".$url."'>Registration Link</a>
+      <br><br>
+      Thank you for being a part of our Fintech community!
+      <br><br>
+      Best Regards, 
+      Fintech team
+      <br>
+      NB:
+      if it wasn't you, please ignore this email";
+      $this->mail->Body = $content;
+      
+      $this->mail->send();
+      return true;
+    }catch(Exception $e){
+      return "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+    }
+  }
+
   //handle link yang dikasih ke user di email.
   public function registerCustomer(){
     $passport_number = $this->db->escapeString($_POST['passport-number']);
@@ -100,7 +136,7 @@ class CustomerController{
     //result:
     $result = array();
     //urus upload files dulu
-    mkdir(dirname(__DIR__).'\\uploads\\'.$userid);
+    mkdir(dirname(__DIR__).'/uploads/'.$userid);
     $s_passport = $this->uploadFile('passport-img', $userid);
     if($s_passport == NULL) {
       $result['status'] = false;
@@ -234,42 +270,6 @@ class CustomerController{
         'allow_self_signed' => true,
       ]
     ];
-  }
-
-  private function sendEmail($recipient, $name, $url){
-    //get web url information
-    $baseURL = $_SERVER['REQUEST_URI']; 
-    $baseURL = dirname($baseURL);
-    
-    try{
-      $this->mail->IsHTML(true);
-      $this->mail->AddAddress($recipient, $name);
-      $this->mail->SetFrom("proyek.informatika.c@gmail.com", "fintech-no-reply");
-      $this->mail->Subject = "Authentication Registration Link";
-      $content = "Hello ".$name."!,
-      <br><br>
-      Thank you for registering to our Fintech Website!
-      <br><br>
-      First of all, we need a little more  information about you 
-      so you can use our website smoothly.
-      <br><br>
-      Please click the link to complete your registration:
-      <a href='".$this->hostname.$baseURL."/new-customer?link=".$url."'>Registration Link</a>
-      <br><br>
-      Thank you for being a part of our Fintech community!
-      <br><br>
-      Best Regards, 
-      Fintech team
-      <br>
-      NB:
-      if it wasn't you, please ignore this email";
-      $this->mail->Body = $content;
-
-      $this->mail->send();
-      return true;
-    }catch(Exception $e){
-      return "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
-    }
   }
 }
 ?>

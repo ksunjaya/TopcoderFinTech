@@ -43,7 +43,7 @@
           </a>
         </li>
         <li>
-          <a href="" data-toggle="modal" data-target="#new-onboard">
+          <a href="" data-toggle="modal" data-target="#new-onboard" onclick="clearStatus()">
             <i class='bx bxs-bar-chart-square bx-sm'></i>
             <span class="links_name">Onboard Customer</span>
           </a>
@@ -107,7 +107,6 @@
 
   const txtName = document.getElementById('fullname');
   const txtEmail = document.getElementById('f-email');
-  console.log(txtEmail);
   const btnOnboardSubmit = document.getElementById('onboard-submit');
   btnOnboardSubmit.addEventListener('click', function(e){
     e.preventDefault();
@@ -158,4 +157,8 @@
     btnOnboardSubmit.disabled = isDisabled;
   }
 
+  function clearStatus(){
+    let p = document.getElementById("onboard-status");
+    p.style.display="none";
+  }
 </script>

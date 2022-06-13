@@ -20,7 +20,7 @@
                     <label for="">Personal Identity Document</label>
                     <p id="info">Passport only</p>
                     <div class="upload-container">
-                        <input type="file" id="passport_upload" name="passport_img" required>
+                        <input type="file" id="passport_upload" name="passport_img" accept="image/png, image/gif, image/jpeg" required>
                     </div>
                     <!-- <button class="upload-btn" onclick="uploadFile()">Upload</button> -->
                     
@@ -28,7 +28,7 @@
                     <label for="">Record a 5 second selfie video</label>
                     <p id="info">Make sure your face isn't covered up with glasses, mask, or any other objects</p>
                     <div class="upload-container">
-                        <input type="file" id="video_upload" name="video" required>
+                        <input type="file" id="video_upload" name="video" accept="video/mp4,video/x-m4v,video/*" required>
                     </div>
                     <!-- <button class="upload-btn" onclick="uploadFile()">Upload</button> -->
                     
@@ -117,7 +117,7 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .catch(error => console.error('Error:', error))
             .then(response => {
                 console.log(response);
