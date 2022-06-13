@@ -185,6 +185,30 @@ class CustomerController{
     return $result;
   }
 
+  //POST, set value to 2
+  public function acceptCustomer(){
+    $userid = $this->db->escapeString($_POST['userid']);
+    
+    $this->customer->update()
+      ->set([
+        'status' => 2
+      ])
+      ->where('id', $userid)
+    ->execute();
+  }
+
+  //POST, set value to 3
+  public function rejectCustomer(){
+    $userid = $this->db->escapeString($_POST['userid']);
+    
+    $this->customer->update()
+      ->set([
+        'status' => 3
+      ])
+      ->where('id', $userid)
+    ->execute();
+  }
+
   //AJAX 
   public function getDetailsFromId(){
     $id = $this->db->escapeString($_GET['id']);

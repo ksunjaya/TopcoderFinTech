@@ -76,6 +76,18 @@
                 $customerController = new CustomerController();
                 echo $customerController->registerCustomer();
                 break;
+            case $baseURL.'/accept-customer':
+                require_once "controller/customerController.php";
+                $customerController = new CustomerController();
+                echo $customerController->acceptCustomer();
+                header('Location: customer-list');
+                break;
+            case $baseURL.'/reject-customer':
+                require_once "controller/customerController.php";
+                $customerController = new CustomerController();
+                echo $customerController->rejectCustomer();
+                header('Location: customer-list');
+                break;
             default :
                 echo '404 not found';
                 break;

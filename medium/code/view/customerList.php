@@ -31,6 +31,8 @@
         $status = 'Error';
         if($customer_list[$i]->status == 0) $status = 'Pending';
         else if($customer_list[$i]->status == 1) $status = 'Awaiting Verification';
+        else if($customer_list[$i]->status == 2) $status = 'Approved';
+        else if($customer_list[$i]->status == 3) $status = 'Rejected';
 
         echo '
           <tr>
@@ -99,8 +101,16 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="customBtn" data-dismiss="modal">Close</button>
+        <div class="modal-footer" style="gap: 10px">
+          <form action='accept-customer' method='POST'>
+            <input type='hidden' id='acc-id' name='userid'>
+            <button id='btn-acc' class="customBtn" style='background-color:green'>Accept</button>
+          </form>
+          <button id='btn-close' class="customBtn" data-dismiss="modal">Close</button>
+          <form action='reject-customer' method='POST'>
+            <input type='hidden' id='reject-id' name='userid'>
+            <button id='btn-reject' class="customBtn" style='background-color: red'>Reject</button>
+          </form>
         </div>
       </div>
     </div>
@@ -119,6 +129,25 @@
   const p_occupation = document.getElementById('occupation');
   const p_address = document.getElementById('address');
 
+  const btn_acc = document.getElementById('btn-acc');
+  btn_acc.addEventListener('click', acceptCustomer);
+  const id_acc = document.getElementById('acc-id');
+  const btn_close = document.getElementById('btn-close');
+  const btn_reject = document.getElementById('btn-reject');
+  btn_reject.addEventListener('click', rejectCustomer);
+  const id_reject = document.getElementById('reject-id');
+  
+  function acceptCustomer(e){
+    e.preventDefault();
+    let form1 = btn_acc.parentElement;
+    form1.submit();
+  }
+
+  function rejectCustomer(e){
+    e.preventDefault();
+    console.log(btn_reject.parentElement);
+  }
+
   function openModal(id){
     fetch('customer-detail?id='+id)
     .then(function(response){
@@ -133,14 +162,29 @@
       p_phone.innerHTML = data.phone;
       p_occupation.innerHTML = data.occupation;
       p_address.innerHTML = data.address;
+
+      id_acc.value = data.id;
+      id_reject.value = data.id;
+      
+      hideAllModalButtons();
+      if(data.status == 0){
+        //customer baru dikasih emailnya, belom diisi detail
+        btn_close.style.display = 'block';
+      }else if(data.status == 1){
+        //udah isi, harus di verifikasi
+        btn_acc.style.display = 'block';
+        btn_reject.style.display = 'block';
+      }else{
+        //udah ke verified
+        btn_close.style.display = 'block';
+      }
     });
     $('#detail').modal('show');
   }
 
-  //buat tombol submit
-  // const img_submit = document.getElementById('img-submit');
-  // const form = img_submit.parentNode;
-  // img_submit.addEventListener('click', function(e){
-  //   form.submit();
-  // });
+  function hideAllModalButtons(){
+    btn_acc.style.display = 'none';
+    btn_close.style.display = 'none';
+    btn_reject.style.display = 'none';
+  }
 </script>
